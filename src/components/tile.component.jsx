@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { AppContext } from "../context";
 import { useContext } from "react";
+import { Fragment } from "react";
 
 const Overlay = styled.div`
   position: absolute;
@@ -21,17 +22,16 @@ const LikeButton = styled.div`
 `;
 
 const FilmTile = styled.div`
-  margin: 8px;
-  border-radius: 8px;
+  margin: 8px 32px 64px 8px;
   box-sizing: border-box;
-  width: 10vw;
-  height: 15vw;
+  width: 200px;
+  height: 300px;
   background-image: url(${(props) =>
     '"https://image.tmdb.org/t/p/original/' + props.poster}");
   background-size: cover;
   position: relative;
   transition: 0.5s;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
   @media (max-width: 768px) {
     width: 40vw;
@@ -88,6 +88,7 @@ const Tile = ({ poster, name, id }) => {
           onClick={() => dispatch({ type: "DISLIKE", payload: id })}
         ></LikeButton>
       </Overlay>
+      <h1>props.title</h1>
     </FilmTile>
   );
 };

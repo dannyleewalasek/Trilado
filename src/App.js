@@ -4,6 +4,7 @@ import Modal from "./components/modal.component";
 import SearchBar from "./components/search-bar.component";
 import Intromodalcontent from "./components/intromodal.component";
 import Recommendations from "./components/recommendations.component";
+import Navigation from "./components/navigation.component";
 import React, { useReducer, useEffect } from "react";
 import { AppContext } from "./context";
 import styled from "styled-components";
@@ -59,6 +60,22 @@ const Curtains = styled.div`
     !props.open ? `transform: translateX(` + props.direction + "%)" : null}
 `;
 
+const Main = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+`;
+
+const Header = styled.div`
+  width: 100%;
+  background-color: #b75d69;
+  padding: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  box-sizing: border-box;
+`;
+
 const rootRef = React.createRef();
 let observer;
 
@@ -92,16 +109,21 @@ function App() {
                 <Intromodalcontent />
               )}
             </Modal>
-          ) : (
-            <SearchBar />
-          )}
-          <TileContainer
-            films={
-              state.searchItems.length > 0 ? state.searchItems : state.films
-            }
-            modalOpen={state.modal}
-            ref={rootRef}
-          ></TileContainer>
+          ) : null}
+          <Header>
+            <SearchBar></SearchBar>
+          </Header>
+          <Main>
+            <Navigation></Navigation>
+            <TileContainer
+              films={
+                state.searchItems.length > 0 ? state.searchItems : state.films
+              }
+              title={"New Releases"}
+              modalOpen={state.modal}
+              ref={rootRef}
+            ></TileContainer>
+          </Main>
         </Fragment>
       </AppContext.Provider>
     </div>

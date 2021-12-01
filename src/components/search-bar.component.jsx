@@ -20,11 +20,9 @@ const searchFilms = async (title, dispatcher) => {
 const Input = styled.input`
   width: 10%;
   height: 30px;
-  top: 16px;
-  left: 45%;
   background-color: white;
   border-radius: 8px;
-  position: fixed;
+  position: relative;
   z-index: 20;
   border: 0;
   transition: 0.5s;
