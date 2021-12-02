@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { AppContext } from "../context";
 import { useContext } from "react";
-import { Fragment } from "react";
 
 const Overlay = styled.div`
   position: absolute;
@@ -21,11 +20,18 @@ const LikeButton = styled.div`
   border-radius: 8px;
 `;
 
+const TileContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-size: 8px;
+  text-align: left;
+  flex-basis: 15%;
+`;
+
 const FilmTile = styled.div`
-  margin: 8px 32px 64px 8px;
-  box-sizing: border-box;
-  width: 200px;
-  height: 300px;
+  width: 100%;
+  height: 450px;
   background-image: url(${(props) =>
     '"https://image.tmdb.org/t/p/original/' + props.poster}");
   background-size: cover;
@@ -50,46 +56,29 @@ const FilmTile = styled.div`
   }
 `;
 
-const LoadingSpinner = styled.div`
-  .loader {
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-`;
-
-const Tile = ({ poster, name, id }) => {
+const Tile = ({ poster, name, id, title, release_date }) => {
   const { dispatch } = useContext(AppContext);
 
   return (
-    <FilmTile
-      poster={poster}
-      onClick={() => dispatch({ type: "LIKE", payload: id })}
-    >
-      <Overlay>
-        <LikeButton
-          color={"green"}
-          onClick={() => dispatch({ type: "REMOVEFILM", payload: id })}
-        ></LikeButton>
-        <LikeButton
-          color={"red"}
-          onClick={() => dispatch({ type: "DISLIKE", payload: id })}
-        ></LikeButton>
-      </Overlay>
-      <h1>props.title</h1>
-    </FilmTile>
+    <TileContainer>
+      <FilmTile
+        poster={poster}
+        onClick={() => dispatch({ type: "LIKE", payload: id })}
+      >
+        <Overlay>
+          <LikeButton
+            color={"green"}
+            onClick={() => dispatch({ type: "REMOVEFILM", payload: id })}
+          ></LikeButton>
+          <LikeButton
+            color={"red"}
+            onClick={() => dispatch({ type: "DISLIKE", payload: id })}
+          ></LikeButton>
+        </Overlay>
+      </FilmTile>
+      <h2>{title}</h2>
+      <h2>{release_date}</h2>
+    </TileContainer>
   );
 };
 

@@ -1,17 +1,27 @@
 import styled from "styled-components";
+import NavItem from "./navitem.component";
+
+import { Link } from "react-router-dom";
 
 const Nav = styled.div`
   height: 100vh;
-  flex-grow: 2;
-  flex-shrink: 0;
-  min-width: 250px;
+  flex-basis: 15%;
   background-color: #372549;
-  position: sticky;
-  top: 0;
+  padding: 64px 0 0 0;
+  //   position: sticky;
+  //   left: 0;
+  //   top: 0;
+  //   box-sizing: border-box;
 `;
 
 const Navigation = () => {
-  return <Nav>infor</Nav>;
+  return (
+    <Nav>
+      <NavItem title="New Releases" to={"/"} />
+      <NavItem title="Trending" to={"/home"} />
+      <NavItem title="Film" to={"/home"} />
+    </Nav>
+  );
 };
 
 export default Navigation;

@@ -3,13 +3,14 @@ import styled from "styled-components";
 import Tile from "./tile.component";
 
 const Container = styled.div`
-  padding: 64px;
   display: flex;
+  justify-content: flex-end;
   flex-direction: row;
   flex-wrap: wrap;
-  flex-grow: 6;
-  width: 100%;
+  flex-basis: 85%;
+  width: 100vw;
   height: 100%;
+  box-sizing: border-box;
   justify-content: center;
   align-content: stretch;
   background-color: #1a1423;
@@ -28,6 +29,7 @@ const TileContainer = (props) => {
               id={film.id}
               title={film.original_title}
               poster={film.poster_path}
+              release_date={film.release_date}
             ></Tile>
           ))
         ) : (

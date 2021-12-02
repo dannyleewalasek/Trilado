@@ -10,6 +10,7 @@ import { AppContext } from "./context";
 import styled from "styled-components";
 import curtains from "../src/curtains.jpeg";
 import { Fragment } from "react/cjs/react.production.min";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -64,16 +65,28 @@ const Main = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
+  transition: 0.5s;
+  opacity: 1;
 `;
 
 const Header = styled.div`
   width: 100%;
+  height: 5vh;
   background-color: #b75d69;
-  padding: 16px;
   position: sticky;
   top: 0;
   z-index: 1;
   box-sizing: border-box;
+  display: flex;
+`;
+
+const Title = styled.div`
+  flex-basis: 15%;
+`;
+
+const Search = styled.div`
+  flex-basis: 85%;
+  background-color: #774c60;
 `;
 
 const rootRef = React.createRef();
@@ -111,18 +124,46 @@ function App() {
             </Modal>
           ) : null}
           <Header>
-            <SearchBar></SearchBar>
+            <Title>Trilado</Title>
+            <Search>
+              <SearchBar></SearchBar>
+            </Search>
           </Header>
           <Main>
             <Navigation></Navigation>
-            <TileContainer
-              films={
-                state.searchItems.length > 0 ? state.searchItems : state.films
-              }
-              title={"New Releases"}
-              modalOpen={state.modal}
-              ref={rootRef}
-            ></TileContainer>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <TileContainer
+                    films={
+                      state.searchItems.length > 0
+                        ? state.searchItems
+                        : state.films
+                    }
+                    title={"New Releases"}
+                    modalOpen={state.modal}
+                    ref={rootRef}
+                  ></TileContainer>
+                }
+              />
+              <Route
+                exact
+                path="/test"
+                element={
+                  <TileContainer
+                    films={
+                      state.searchItems.length > 0
+                        ? state.searchItems
+                        : state.films
+                    }
+                    title={"New Releases"}
+                    modalOpen={state.modal}
+                    ref={rootRef}
+                  ></TileContainer>
+                }
+              />
+            </Routes>
           </Main>
         </Fragment>
       </AppContext.Provider>
