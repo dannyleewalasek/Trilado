@@ -26,14 +26,15 @@ const TileContainer = styled.div`
   color: white;
   font-size: 8px;
   text-align: left;
-  flex-basis: 15%;
+  height: 370px;
+  width: 200px;
 `;
 
 const FilmTile = styled.div`
-  width: 100%;
-  height: 450px;
+  height: 100%;
+  widsth: 100%;
   background-image: url(${(props) =>
-    '"https://image.tmdb.org/t/p/original/' + props.poster}");
+    '"https://image.tmdb.org/t/p/w300/' + props.poster}");
   background-size: cover;
   position: relative;
   transition: 0.5s;

@@ -8,7 +8,6 @@ import Navigation from "./components/navigation.component";
 import React, { useReducer, useEffect } from "react";
 import { AppContext } from "./context";
 import styled from "styled-components";
-import curtains from "../src/curtains.jpeg";
 import { Fragment } from "react/cjs/react.production.min";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
@@ -49,18 +48,6 @@ const initialState = {
   recommendations: undefined,
 };
 
-const Curtains = styled.div`
-  background-image: url(${curtains});
-  background-size: cover;
-  height: 100%;
-  width: 100%;
-  z-index: 1;
-  position: absolute;
-  transition: 2s;
-  ${(props) =>
-    !props.open ? `transform: translateX(` + props.direction + "%)" : null}
-`;
-
 const Main = styled.div`
   display: flex;
   width: 100%;
@@ -72,7 +59,7 @@ const Main = styled.div`
 const Header = styled.div`
   width: 100%;
   height: 5vh;
-  background-color: #b75d69;
+  background-color: #f83847;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -81,16 +68,17 @@ const Header = styled.div`
 `;
 
 const Title = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-basis: 15%;
+  color: white;
 `;
 
 const Search = styled.div`
   flex-basis: 85%;
   background-color: #774c60;
 `;
-
-const rootRef = React.createRef();
-let observer;
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -143,7 +131,6 @@ function App() {
                     }
                     title={"New Releases"}
                     modalOpen={state.modal}
-                    ref={rootRef}
                   ></TileContainer>
                 }
               />
@@ -159,7 +146,6 @@ function App() {
                     }
                     title={"New Releases"}
                     modalOpen={state.modal}
-                    ref={rootRef}
                   ></TileContainer>
                 }
               />
