@@ -46,10 +46,10 @@ const Navigation = () => {
         <Link to={"/"}>New Releases</Link>
       </Item>
       <Item selected={trendingActive} onClick={() => changeActive("trending")}>
-        <Link to={"/home"}>New Trending</Link>
+        <Link to={"/trending"}>New Trending</Link>
       </Item>
       <Item selected={filmActive} onClick={() => changeActive("film")}>
-        <Link to={"/film"}>Film</Link>
+        <Link to={"/recommendations"}>Film</Link>
       </Item>
     </Nav>
   );

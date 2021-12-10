@@ -28,11 +28,21 @@ const TileContainer = styled.div`
   text-align: left;
   height: 370px;
   width: 200px;
+  animation-duration: 2s;
+  animation-name: example;
+  @keyframes example {
+    from {
+      transform: scale(0.8);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
 `;
 
 const FilmTile = styled.div`
   height: 100%;
-  widsth: 100%;
+  width: 100%;
   background-image: url(${(props) =>
     '"https://image.tmdb.org/t/p/w300/' + props.poster}");
   background-size: cover;

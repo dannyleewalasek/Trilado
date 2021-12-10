@@ -136,7 +136,7 @@ function App() {
               />
               <Route
                 exact
-                path="/test"
+                path="/trending"
                 element={
                   <TileContainer
                     films={
@@ -148,6 +148,11 @@ function App() {
                     modalOpen={state.modal}
                   ></TileContainer>
                 }
+              />
+              <Route
+                exact
+                path="/recommendations"
+                element={<h1>recommendations</h1>}
               />
             </Routes>
           </Main>
