@@ -1,7 +1,7 @@
 import "./App.css";
-import TileContainer from "./components/tile-container.component";
+import TileContainer from "./components/newreleases/tile-container.component";
 import Modal from "./components/modal.component";
-import SearchBar from "./components/search-bar.component";
+import SearchBar from "./components/header/search-bar.component";
 import Intromodalcontent from "./components/intromodal.component";
 import Recommendations from "./components/recommendations.component";
 import Navigation from "./components/navigation.component";
@@ -14,13 +14,15 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 const reducer = (state, action) => {
   switch (action.type) {
     case "LIKE":
-      return state.likes.length === 10
-        ? {
-            ...state,
-            likes: [...state.likes, action.payload],
-            modal: !state.modal,
-          }
-        : { ...state, likes: [...state.likes, action.payload] };
+      return {
+        ...state,
+        //THIS DOESNT WORK, due to comparing objects
+        likes: state.likes.includes(action.payload)
+          ? state.likes
+          : [...state.likes, action.payload],
+      };
+    case "CHANGEPAGE":
+      return { ...state, page: action.payload };
     case "DISLIKE":
       return { ...state, dislikes: [...state.dislikes, action.payload] };
     case "FILM":
@@ -46,6 +48,7 @@ const initialState = {
   modal: true,
   searchItems: [],
   recommendations: undefined,
+  page: "/",
 };
 
 const Main = styled.div`
@@ -118,7 +121,7 @@ function App() {
             </Search>
           </Header>
           <Main>
-            <Navigation></Navigation>
+            <Navigation page={state.page}></Navigation>
             <Routes>
               <Route
                 path="/"
@@ -153,6 +156,16 @@ function App() {
                 exact
                 path="/recommendations"
                 element={<h1>recommendations</h1>}
+              />
+              <Route
+                exact
+                path="/history"
+                element={
+                  <TileContainer
+                    films={state.likes}
+                    title={"History"}
+                  ></TileContainer>
+                }
               />
             </Routes>
           </Main>

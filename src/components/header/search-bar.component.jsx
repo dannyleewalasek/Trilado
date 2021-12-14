@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React from "react";
-import { AppContext } from "../context";
+import { AppContext } from "../../context";
 import { useContext } from "react";
 
 const searchFilms = async (title, dispatcher) => {

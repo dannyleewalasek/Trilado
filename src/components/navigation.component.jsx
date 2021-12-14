@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import NavItem from "./navitem.component";
-
+import { AppContext } from "../context";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 const Nav = styled.div`
@@ -19,6 +19,7 @@ const Nav = styled.div`
   &:hover {
     width: 500px;
   }
+  }
 `;
 
 const Item = styled.div`
@@ -35,39 +36,37 @@ const Item = styled.div`
   background-color: ${(props) => (props.selected ? "#222b30" : "inherit")};
 `;
 
-let newActive = true,
-  trendingActive = false,
-  filmActive = false;
-
-const Navigation = () => {
+const Navigation = ({ page }) => {
+  const { dispatch } = useContext(AppContext);
   return (
     <Nav>
-      <Item selected={newActive} onClick={() => changeActive("new")}>
+      <Item
+        selected={page === "/" ? true : false}
+        onClick={() => dispatch({ type: "CHANGEPAGE", payload: "/" })}
+      >
         <Link to={"/"}>New Releases</Link>
       </Item>
-      <Item selected={trendingActive} onClick={() => changeActive("trending")}>
-        <Link to={"/trending"}>New Trending</Link>
+      <Item
+        selected={page === "/trending" ? true : false}
+        onClick={() => dispatch({ type: "CHANGEPAGE", payload: "/trending" })}
+      >
+        <Link to={"/trending"}>Trending</Link>
       </Item>
-      <Item selected={filmActive} onClick={() => changeActive("film")}>
-        <Link to={"/recommendations"}>Film</Link>
+      <Item
+        selected={page === "/recommendations" ? true : false}
+        onClick={() =>
+          dispatch({ type: "CHANGEPAGE", payload: "/recommendations" })
+        }
+      >
+        <Link to={"/recommendations"}>Reccomendations</Link>
+      </Item>
+      <Item
+        selected={page === "/history" ? true : false}
+        onClick={() => dispatch({ type: "CHANGEPAGE", payload: "/history" })}
+      >
+        <Link to={"/history"}>History</Link>
       </Item>
     </Nav>
   );
 };
-
-const changeActive = (selected) => {
-  console.log("hit");
-  newActive = false;
-  trendingActive = false;
-  filmActive = false;
-  switch (selected) {
-    case "new":
-      newActive = true;
-    case "trending":
-      trendingActive = true;
-    case "film":
-      filmActive = true;
-  }
-};
-
 export default Navigation;
