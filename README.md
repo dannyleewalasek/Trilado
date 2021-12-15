@@ -24,6 +24,7 @@
 * Sync Scrolling
   - While you type, LivePreview will automatically scroll to the current location you're editing.
 * GitHub Flavored Markdown  
+
 * Syntax highlighting
 * [KaTeX](https://khan.github.io/KaTeX/) Support
 * Dark/Light mode
@@ -39,10 +40,13 @@
 
 ## To Do
 
+
+* LivePreview - Make changes, See changes
+  - Instantly see what your Markdown documents look like in HTML as you create them.
 * Add recommendations page
- - Create component for displaying recommendations
+  - Create component for displaying recommendations
 * Introduction modal content/styling
- - initial model needs content adding
+  - initial model needs content adding
 
 
 ## How To Use
