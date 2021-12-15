@@ -5,7 +5,7 @@
   <br>
 </h1>
 
-<h4 align="center">A film recommendation site built using ReactJS.</h4>
+<h4 align="center">A film recommendation web app built using ReactJS.</h4>
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
