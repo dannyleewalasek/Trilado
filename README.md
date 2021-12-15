@@ -73,7 +73,6 @@ MIT
 
 ---
 
-> [amitmerchant.com](https://www.amitmerchant.com) &nbsp;&middot;&nbsp;
+> [dannyleewalasek.github.io](https://dannyleewalasek.github.io) &nbsp;&middot;&nbsp;
 > GitHub [@dannyleewalasek](https://github.com/dannyleewalasek) &nbsp;&middot;&nbsp;
-> Twitter [@amit_merchant](https://twitter.com/amit_merchant)
 
