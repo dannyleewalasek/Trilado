@@ -57,7 +57,7 @@ const FilmTile = styled.div`
   background-size: cover;
   position: relative;
   transition: 0.5s;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  // box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
   @media (max-width: 768px) {
     width: 40vw;
@@ -93,16 +93,19 @@ const Tile = ({ poster, name, id, title, release_date }) => {
           }}
         ></DislikeButton>
         <LikeButton
-          onClick={() => {
-            dispatch({
-              type: "LIKE",
-              payload: { id, title, release_date, poster_path: poster },
-            });
-            dispatch({
-              type: "REMOVEFILM",
-              payload: id,
-            });
-          }}
+          onClick={() =>
+            setTimeout(() => {
+              //MAYBE REMOVE THIS LATER, WILL BE GOOD FOR ANIMATIONS TO HAVE A DELAY
+              dispatch({
+                type: "LIKE",
+                payload: { id, title, release_date, poster_path: poster },
+              });
+              dispatch({
+                type: "REMOVEFILM",
+                payload: id,
+              });
+            }, 2000)
+          }
         ></LikeButton>
       </FilmTile>
       <h2>{title}</h2>

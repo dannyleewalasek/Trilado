@@ -6,7 +6,7 @@ import { useContext } from "react";
 const searchFilms = async (title, dispatcher) => {
   title === ""
     ? dispatcher({ type: "SEARCH", payload: [] })
-    : fetch(`http://localhost:3000/search?query=${title}`)
+    : fetch(`https://trilado-api.herokuapp.com/search?query=${title}`)
         .then((response) => response.json())
         .then((response) => {
           dispatcher({

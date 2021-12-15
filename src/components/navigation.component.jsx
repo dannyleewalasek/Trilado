@@ -23,6 +23,7 @@ const Nav = styled.div`
 `;
 
 const Item = styled.div`
+  boz-sizing: border-box;
   display: flex;
   justify-content: center;
   background-color: #191d20;
@@ -34,38 +35,47 @@ const Item = styled.div`
     background-color: #222b30;
   }
   background-color: ${(props) => (props.selected ? "#222b30" : "inherit")};
+  border-left: ${(props) => (props.selected ? "4px solid red" : "none")};
 `;
 
 const Navigation = ({ page }) => {
   const { dispatch } = useContext(AppContext);
   return (
     <Nav>
-      <Item
-        selected={page === "/" ? true : false}
-        onClick={() => dispatch({ type: "CHANGEPAGE", payload: "/" })}
-      >
-        <Link to={"/"}>New Releases</Link>
-      </Item>
-      <Item
-        selected={page === "/trending" ? true : false}
-        onClick={() => dispatch({ type: "CHANGEPAGE", payload: "/trending" })}
-      >
-        <Link to={"/trending"}>Trending</Link>
-      </Item>
-      <Item
-        selected={page === "/recommendations" ? true : false}
-        onClick={() =>
-          dispatch({ type: "CHANGEPAGE", payload: "/recommendations" })
-        }
-      >
-        <Link to={"/recommendations"}>Reccomendations</Link>
-      </Item>
-      <Item
-        selected={page === "/history" ? true : false}
-        onClick={() => dispatch({ type: "CHANGEPAGE", payload: "/history" })}
-      >
-        <Link to={"/history"}>History</Link>
-      </Item>
+      <Link to={"/"}>
+        <Item
+          selected={page === "/" ? true : false}
+          onClick={() => dispatch({ type: "CHANGEPAGE", payload: "/" })}
+        >
+          New Releases
+        </Item>
+      </Link>
+      <Link to={"/trending"}>
+        <Item
+          selected={page === "/trending" ? true : false}
+          onClick={() => dispatch({ type: "CHANGEPAGE", payload: "/trending" })}
+        >
+          Trending
+        </Item>
+      </Link>
+      <Link to={"/recommendations"}>
+        <Item
+          selected={page === "/recommendations" ? true : false}
+          onClick={() =>
+            dispatch({ type: "CHANGEPAGE", payload: "/recommendations" })
+          }
+        >
+          Reccomendations
+        </Item>
+      </Link>
+      <Link to={"/history"}>
+        <Item
+          selected={page === "/history" ? true : false}
+          onClick={() => dispatch({ type: "CHANGEPAGE", payload: "/history" })}
+        >
+          History
+        </Item>
+      </Link>
     </Nav>
   );
 };

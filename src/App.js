@@ -87,7 +87,7 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/frequent`)
+    fetch(`https://trilado-api.herokuapp.com/frequent`)
       .then((response) => response.json())
       .then((response) => {
         console.log(response);
