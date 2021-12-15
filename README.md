@@ -57,8 +57,9 @@ $ npm start
 Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
 
 ## Related
-
-[markdownify-web](https://github.com/amitmerchant1990/markdownify-web) - Web version of Markdownify
+- [YoKu e-commerce](https://github.com/dannyleewalasek/clothing-ecommerce) - An e-commerce clothing site
+- [Trilado](https://github.com/dannyleewalasek/Trilado) - The front end of a film recommendation web app
+- [Trilado-Backend](https://github.com/dannyleewalasek/Trilado-Backend) - The back end of the Trilado film recommendation web app
 
 ## Support
 
@@ -70,11 +71,6 @@ Note: If you're using Linux Bash for Windows, [see this guide](https://www.howto
 	<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
 </a>
 
-## You may also like...
-
-- [Pomolectron](https://github.com/amitmerchant1990/pomolectron) - A pomodoro app
-- [Correo](https://github.com/amitmerchant1990/correo) - A menubar/taskbar Gmail App for Windows and macOS
-
 ## License
 
 MIT
@@ -82,6 +78,6 @@ MIT
 ---
 
 > [amitmerchant.com](https://www.amitmerchant.com) &nbsp;&middot;&nbsp;
-> GitHub [@amitmerchant1990](https://github.com/amitmerchant1990) &nbsp;&middot;&nbsp;
+> GitHub [@dannyleewalasek](https://github.com/dannyleewalasek) &nbsp;&middot;&nbsp;
 > Twitter [@amit_merchant](https://twitter.com/amit_merchant)
 
