@@ -27,7 +27,7 @@ const Container = styled.div`
   ${(props) => (props.modalOpen ? "filter: blur(4px)" : null)};
 `;
 
-const TileContainer = (props) => {
+export default function TileContainer(props) {
   console.log(props.films);
   return (
     <Fragment>
@@ -48,6 +48,4 @@ const TileContainer = (props) => {
       </Container>
     </Fragment>
   );
-};
-
-export default TileContainer;
+}

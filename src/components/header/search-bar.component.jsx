@@ -38,9 +38,11 @@ const Input = styled.input`
   &:focus {
     outline: none;
   }
+  flex-basis: 85%;
+  background-color: #774c60;
 `;
 
-const SearchBar = () => {
+export default function SearchBar() {
   const { dispatch } = useContext(AppContext);
   return (
     <Input
@@ -48,6 +50,4 @@ const SearchBar = () => {
       placeholder="&#x1F50D;"
     ></Input>
   );
-};
-
-export default SearchBar;
+}

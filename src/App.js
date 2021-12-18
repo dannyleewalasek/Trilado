@@ -1,12 +1,12 @@
 import "./App.css";
-import TileContainer from "./components/newreleases/tile-container.component";
-import Modal from "./components/modal.component";
+import TileContainer from "./components/main/tile-container.component";
+import Modal from "./components/modal/modal.component";
 import SearchBar from "./components/header/search-bar.component";
-import Intromodalcontent from "./components/intromodal.component";
 import Recommendations from "./components/recommendations.component";
-import Navigation from "./components/navigation.component";
+import Navigation from "./components/navigation/navigation.component";
 import React, { useReducer, useEffect } from "react";
 import { AppContext } from "./context";
+import Header from "./components/header/header.component";
 import styled from "styled-components";
 import { Fragment } from "react/cjs/react.production.min";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
@@ -59,30 +59,6 @@ const Main = styled.div`
   opacity: 1;
 `;
 
-const Header = styled.div`
-  width: 100%;
-  height: 5vh;
-  background-color: #f83847;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  box-sizing: border-box;
-  display: flex;
-`;
-
-const Title = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-basis: 15%;
-  color: white;
-`;
-
-const Search = styled.div`
-  flex-basis: 85%;
-  background-color: #774c60;
-`;
-
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -105,20 +81,9 @@ function App() {
     <div className="App">
       <AppContext.Provider value={{ dispatch }}>
         <Fragment>
-          {state.modal ? (
-            <Modal>
-              {state.likes.length === 10 ? (
-                <Recommendations />
-              ) : (
-                <Intromodalcontent />
-              )}
-            </Modal>
-          ) : null}
+          {state.modal ? <Modal /> : null}
           <Header>
-            <Title>Trilado</Title>
-            <Search>
-              <SearchBar></SearchBar>
-            </Search>
+            <SearchBar></SearchBar>
           </Header>
           <Main>
             <Navigation page={state.page}></Navigation>

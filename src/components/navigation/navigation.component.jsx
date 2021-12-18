@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { AppContext } from "../context";
+import { AppContext } from "../../context";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
@@ -38,7 +38,7 @@ const Item = styled.div`
   border-left: ${(props) => (props.selected ? "4px solid red" : "none")};
 `;
 
-const Navigation = ({ page }) => {
+export default function Navigation({ page }) {
   const { dispatch } = useContext(AppContext);
   return (
     <Nav>
@@ -78,5 +78,4 @@ const Navigation = ({ page }) => {
       </Link>
     </Nav>
   );
-};
-export default Navigation;
+}

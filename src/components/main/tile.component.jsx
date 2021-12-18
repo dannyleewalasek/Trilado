@@ -74,7 +74,7 @@ const FilmTile = styled.div`
   }
 `;
 
-const Tile = ({ poster, name, id, title, release_date }) => {
+export default function Tile({ poster, name, id, title, release_date }) {
   const { dispatch } = useContext(AppContext);
 
   return (
@@ -112,6 +112,4 @@ const Tile = ({ poster, name, id, title, release_date }) => {
       <h2>{release_date}</h2>
     </TileContainer>
   );
-};
-
-export default Tile;
+}
